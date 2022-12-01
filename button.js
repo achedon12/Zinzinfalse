@@ -30,6 +30,7 @@ function alert3(){
     hideAll();
     input = document.createElement("input");
     input.type = 'text';
+    input.id="inpCode";
     valid = document.createElement("input");
     valid.type = 'submit';
     valid.value = 'Valider';
