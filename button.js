@@ -30,15 +30,26 @@ function alert3(){
     hideAll();
     input = document.createElement("input");
     input.type = 'text';
+    input.id = 'inpCode';
     valid = document.createElement("input");
     valid.type = 'submit';
     valid.value = 'Valider';
+    valid.addEventListener("click", validate);
     document.getElementById("pmod").append(input);
     document.getElementById("pmod").append(valid);
     document.getElementById('modal').style.display = 'block';
     document.getElementById("modal-close").addEventListener("click", fermer);
+
 }
 
+function validate(){
+    if (document.getElementById('inpCode').value == '1234'){
+        document.location.href='room.php';
+    }
+    else {
+        alert("Erreur de code !");
+    }
+}
 function fermer(){
     document.getElementById("pmod").textContent = "";
     document.getElementById("modal").style.display = 'none';
