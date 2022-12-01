@@ -42,3 +42,18 @@ input:hover{
     border: 1px solid black;
 }
 
+input[type="submit"]:hover{
+    background-image: linear-gradient(to top right, rgb(0, 166, 255),rgb(0, 51, 255));
+    border: 1px solid white;
+}
+
+input[type="submit"]{
+    padding: 1%;
+    border-radius: 8px;
+    border: 1px solid cornflowerblue;
+}
+
+
+
+
+
