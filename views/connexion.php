@@ -37,7 +37,7 @@ if(isset($_POST["id-connexion"]) && isset($_POST["password-connexion"])){
             <input type="password" name="password-connexion" id="password" placeholder="Mot de passe"
         </section>
         <input type="submit" id="valider">
+            <a href="inscription.php">Inscription</a>
     </form>
 </body>
-
 </html>

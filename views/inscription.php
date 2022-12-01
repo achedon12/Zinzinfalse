@@ -21,19 +21,17 @@ session_start();
 <body>
     <form method="post">
         <h1>Inscrivez-vous</h1>
-
         <section>
             <h2>Nom d'utilisateur</h2>
             <input type="text" name="username" id="username" placeholder="Nom d'utilisateur" maxlength="8 required">
             <h2>Adresse mail</h2>
-
             <input type="email" name="email" id="mail" placeholder="Adresse e-mail">
 
             <h2>Mot de passe</h2>
             <input type="password" name="mdp" id="password" placeholder="Mot de passe">
         </section>
-
         <input type="submit" name="subButton" id="valider">
+        <a href="connexion.php">Connexion</a>
 
     </form>
     <?php
