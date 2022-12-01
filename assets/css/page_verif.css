@@ -1,0 +1,16 @@
+
+body{
+    background-color: rgba(189, 131, 45, 0.73);
+}
+
+h1{
+    text-align: center;
+    margin: auto;
+    font-size: 75px;
+    padding: 2%;
+    color: #fff;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    vertical-align: middle;
+}
