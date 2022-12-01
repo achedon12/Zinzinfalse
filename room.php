@@ -26,7 +26,7 @@
 <button id="quatre"> test </button>
 <button id="cinq"> test </button>
 </body>
-<script type="text/javascript" src="./button.js"></script>
+<script type="text/javascript" src="./room3.js"></script>
 <link rel="stylesheet" href="escape.css">
 </html>
 
