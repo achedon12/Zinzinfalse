@@ -52,7 +52,7 @@ class QuestionManager{
                 $array[] = $question;
             }
         }
-        
+
         $res = [];
 
         while(sizeof($res) !== $questionNumber){
