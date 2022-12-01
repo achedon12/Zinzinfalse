@@ -32,11 +32,35 @@ class QuestionManager{
      * @return array
      */
     public function getRandomQuestions(int $number): array{
+        /** @var Question[] $array */
         $array = [];
         $questions = $this->getAllQuestions();
         while(sizeof($array) !== $number){
-            $array[] = $questions[rand(0,sizeof($questions)-1)];
+            $question = $questions[rand(0,sizeof($questions)-1)];
+            if(!in_array($question->getLibelle(),$questions)){
+                $array[] = $question;
+            }
         }
         return $array;
+    }
+
+    public function getRandomQuestionsWhitePoints(int $pointsNumber, $questionNumber): array{
+        /** @var Question[] $array */
+        $array = [];
+        foreach ($this->getAllQuestions() as $question){
+            if($question->getPoints() == $pointsNumber){
+                $array[] = $question;
+            }
+        }
+        
+        $res = [];
+
+        while(sizeof($res) !== $questionNumber){
+            $theQuestion = $array[rand(0,sizeof($array)-1)];
+            if(!in_array($theQuestion->getLibelle(),$res)){
+                $res[] = $theQuestion;
+            }
+        }
+        return $res;
     }
 }
