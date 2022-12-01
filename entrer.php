@@ -9,7 +9,9 @@
     <title>Escape the Room</title>
 </head>
 <body class="container" id="oui">
-<img src="Image/entrer.png" alt="feur">
+<img src="Image/entrer.png" alt="">
 <button id="un"> test </button>
 <link rel="stylesheet" href="entrer.css">
+<script type="text/javascript" src="entrer.js"></script>
 </html>
+
