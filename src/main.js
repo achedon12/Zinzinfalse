@@ -1,4 +1,4 @@
-let gameConfig = {
+const gameConfig = {
     type: Phaser.AUTO,
     width: 800,
     height: 600,
@@ -10,6 +10,7 @@ let gameConfig = {
             gravity: { y : 1000 },
         }
     },
-    scene: new Tableau1()
+    scene: [ Tuto,Tableau1]
+
 };
 let game = new Phaser.Game(gameConfig);
