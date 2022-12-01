@@ -1,6 +1,7 @@
 <?php
 
 ?>
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -29,5 +30,4 @@
 <script type="text/javascript" src="./room3.js"></script>
 <link rel="stylesheet" href="escape.css">
 </html>
-
 
