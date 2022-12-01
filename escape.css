@@ -28,3 +28,29 @@
 .container .btn:hover {
     background-color: black;
 }
+
+#deux{
+    position: absolute;
+    width: 4%;
+    height: 4%;
+    top: 40%;
+    left: 54.5%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+#trois{
+    position: absolute;
+    width: 4%;
+    height: 22%;
+    top: 52%;
+    left: 21%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
