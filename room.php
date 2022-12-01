@@ -14,7 +14,7 @@
 <button id="deux"> test </button>
 <button id="trois"> test </button>
 </body>
-<script type="text/javascript" src="button.js"></script>
+<script type="text/javascript" src="room2.js"></script>
 <link rel="stylesheet" href="escape.css">
 </html>
 

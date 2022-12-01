@@ -22,7 +22,7 @@
 <button id="deux"> test 2 </button>
 <button id="quatre"> test 4 </button>
 </body>
-<script type="text/javascript" src="button.js"></script>
+<script type="text/javascript" src="room2.js"></script>
 <link rel="stylesheet" href="escape2.css">
 </html>
 
