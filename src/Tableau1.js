@@ -7,7 +7,7 @@ class Tableau1 extends Phaser.Scene{
 
     preload() {
         this.load.image('perso', 'assets/sprites/cercle.png');
-       // this.load.image('background', 'assets/sprites/background.png');
+       this.load.image('background1', 'assets/sprites/background_hospital.png');
         this.load.image('ground', 'assets/sprites/sol.png');
         this.load.image('door1', 'assets/sprites/door1.png');
         this.load.image('door2', 'assets/sprites/door2.png');
@@ -16,9 +16,9 @@ class Tableau1 extends Phaser.Scene{
     create() {
         let me = this;
 
-        this.cameras.main.setBounds(0, 0, 99999999999999999999999999, 540);
+        this.cameras.main.setBounds(0, 0, 1024, 540);
         
-        //this.background = this.add.image(0, 0, 'background').setOrigin(0,0);
+        this.background = this.add.image(0, -300 , 'background1').setOrigin(0,0);
 
         this.tailleecran = 800;
 
@@ -35,6 +35,7 @@ class Tableau1 extends Phaser.Scene{
         this.murgauche.body.setAllowGravity(true);
         this.murgauche.setVisible(false);
         this.murgauche.setCollideWorldBounds(true);
+        this.murgauche.setImmovable(true);
 
         this.porte1 = this.physics.add.sprite(250, 600, 'door1');
         this.porte1.setDisplaySize(40,60);
