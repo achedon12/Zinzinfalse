@@ -19,29 +19,22 @@ function alert1(){
     document.getElementById("pmod").textContent = "Es-tu sûr de vouloir affronté la prochaine étape ? Tu as assez révisé ? On m'a dit que la salle a beaucoup d'info, j'irais vérifier personnellement !";
     document.getElementById('modal').style.display = 'block';
     document.getElementById("modal-close").addEventListener("click", fermer);
-    setTimeout(function(){
-        document.getElementById("pmod").textContent = "Met Oui si tu veux quand même continuer sinon click sur fermer";
-        input = document.createElement("input");
-        input.type = 'text';
-        input.id="inpCode";
-        document.getElementById("pmod").appendChild(input);
-        valid = document.createElement("input");
-        valid.type = 'submit';
-        valid.value = 'Valider';
-        valid.id = "valid";
-        document.getElementById("pmod").appendChild(valid);
-        valid.addEventListener("click", validate);
-        document.getElementById("modal-close").addEventListener("click", fermer);
-    },10000);
+    input = document.createElement("input");
+    input.type = 'submit';
+    input.id = "inpCode";
+    input.value = 'Oui';
+    input2 = document.createElement("input");
+    input2.type = 'submit';
+    input2.id = "inpCode2";
+    input2.value = "Non";
+    document.getElementById("pmod").appendChild(input);
+    document.getElementById("pmod").appendChild(input2);
+    document.getElementById("inpCode").addEventListener("click", validate);
+    document.getElementById("inpCode2").addEventListener("click", fermer);
 }
 
 function validate(){
-    test = document.getElementById('inpCode').value
-    if (test === "Oui" || test==="OUI" || test==="oui"){
-        document.location.href = "quizz.php";
-    }else{
-        fermer();
-    }
+    document.location.href = "quizz.php";
 }
 
 /*écran tout au fond a droite*/
