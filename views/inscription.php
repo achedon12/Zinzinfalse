@@ -23,7 +23,7 @@ session_start();
         <h1>Inscrivez-vous</h1>
         <section>
             <h2>Nom d'utilisateur</h2>
-            <input type="text" name="username" id="username" placeholder="Nom d'utilisateur" maxlength="8 required">
+            <input type="text" name="username" id="username" placeholder="Nom d'utilisateur" maxlength=15 required">
             <h2>Adresse mail</h2>
             <input type="email" name="email" id="mail" placeholder="Adresse e-mail">
 
@@ -31,13 +31,14 @@ session_start();
             <input type="password" name="mdp" id="password" placeholder="Mot de passe">
         </section>
         <input type="submit" name="subButton" id="valider">
-        <a href="connexion.php">Connexion</a>
+        <a href="connexion.php">Vers page connexion</a>
 
     </form>
     <?php
     //Create an instance; passing `true` enables exceptions
     require_once '../vendor/autoload.php';
     require_once "../assets/php/database/DatabaseManager.php";
+
     if (isset($_POST['subButton'])) {
         $username = isset($_POST['username'])?trim($_POST['username']):"";
         $email = isset($_POST['email'])?trim($_POST['email']):"";
@@ -50,8 +51,7 @@ session_start();
         }else{
             $user->createUtilisateur($username,$cryptMDP,$email,$verification);
             PHPMailerManager::sendAMail($email,$username,$verification);
-            //echo("Message envoyé");
-            echo"<p class='message'>Votre compte a bien été crée !</p>";
+            echo"<p class='message'>Votre compte a bien été crée et un email vous a été envoyé!</p>";
             //sleep(5);
             //header("Location: connexion.php");
         }
