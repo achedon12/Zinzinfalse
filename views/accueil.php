@@ -8,10 +8,10 @@ if(session_status() == PHP_SESSION_NONE){
     session_start();
 }
 
-if(!Auth::isConnected()){
+/*if(!Auth::isConnected()){
     header("location: connexion.php");
     exit(0);
-}
+}*/
 
 if(isset($_POST["deconnect"])){
     Auth::disconnect();
