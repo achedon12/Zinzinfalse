@@ -14,7 +14,7 @@ session_start();
         <link rel="stylesheet" href="src/cssphaser.css">
     </head>
         <body>
-            <div id="scores"><?php if (isset($_SESSION['score'])) {echo $_SESSION['score'] ;} else echo 0 ?></div>
+            <div id="scores"><?php if (isset($_COOKIE['score'])) {echo $_COOKIE['score'] ;} else echo 0 ?></div>
             <div id="game"></div>
         </body>
 

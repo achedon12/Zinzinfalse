@@ -112,11 +112,18 @@ class Tableau1 extends Phaser.Scene{
     }
     GestionEvent(player){
         if(this.physics.overlap(player, this.porte1)){
-            this.scene.start("Tuto");
-            //this.scene.start("Tableau2");
+            gotoScoreboard();
         }
         if(this.physics.overlap(player, this.porte2)){
-            //this.scene.start("Tableau2");
+            gotofinish();
         }
     }
+}
+
+function gotoScoreboard(){
+    window.location = './learderboard.php';
+}
+
+function gotofinish(){
+    window.location.href = 'finish.html';
 }

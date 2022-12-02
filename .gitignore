@@ -1,1 +1,5 @@
 .idea
+PDO.php
+UtilisateurManager.php
+User.php
+Partie.php
