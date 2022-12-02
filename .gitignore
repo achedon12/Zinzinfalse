@@ -1,3 +1,7 @@
 .idea
 /vendor
 assets/php/database/DatabaseManager.php
+PDO.php
+UtilisateurManager.php
+User.php
+Partie.php
