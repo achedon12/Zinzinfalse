@@ -38,7 +38,7 @@ function alert1(){
 function validate(){
     test = document.getElementById('inpCode').value
     if (test === "Oui" || test==="OUI" || test==="oui"){
-        document.location.href = "page.php";
+        document.location.href = "quizz.php";
     }else{
         fermer();
     }
