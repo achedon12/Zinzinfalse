@@ -1,11 +1,17 @@
 <?php
 session_start();
-if (!isset($_Post['user'])) {
-    header('Location: login.php');
-    exit;
+
+require_once "managers/QuestionManager.php";
+require_once "database/DatabaseManager.php";
+
+$questions = new QuestionManager(DatabaseManager::getInstance());
+
+if (!isset($_Post['questions'])) {
+
+    $_session['questions'] = $questions->getRandomQuestions(10);
 }
+print_r($_POST);
 $_session['allQuestions'] = [];
-$_session['questions'] = [];
 $_session['indice'] = 0;
 ?>
 <!DOCTYPE html>
@@ -28,22 +34,7 @@ $_session['indice'] = 0;
             <img src="../../Image/jaune-d-or-opalescent.jpg" alt="Exemple Image" />
         </article>
         <article class="question">
-            <h3>Question possible</h3>
-            <section>
-                <form method="post">
-                    <input type="checkbox" id="rep1" name="rep1">
-                    <label for="rep1">Reponse 1</label>
-                    <input type="checkbox" id="rep2" name="rep2">
-                    <label for="rep2">Reponse 2</label>
-                    <input type="checkbox" id="rep3" name="rep3">
-                    <label for="rep3">Reponse 3</label>
-                    <input type="checkbox" id="rep4" name="rep4">
-                    <label for="rep4">Reponse 4</label>
-                    <input type="checkbox" id="rep5" name="rep5">
-                    <label for="rep5">Reponse 5</label>
-                    <button type="submit"><i class="fa fa-caret-square-right"></i></button>
-                </form>
-            </section>
+            <?php echo $_session["questions"][$_session["indice"]]->toForm();?>
         </article>
     </section>
 

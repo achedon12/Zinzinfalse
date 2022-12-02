@@ -29,7 +29,7 @@ class Reponse{
     }
 
     public function toForm(): string{
-        return "<input type='radio' name='reponse' value='".$this->noReponse."'>".
+        return "<input type='checkbox' id='".$this->noReponse."' name='".$this->noReponse."'>".
             "<label for='".$this->noReponse."'>".$this->libelle."</label>";
     }
 

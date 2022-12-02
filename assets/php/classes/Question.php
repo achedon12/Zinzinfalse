@@ -23,10 +23,16 @@ class Question{
     }
 
     public function toForm(): string{
-        $res = "";
+        $res = "<h3>".$this->libelle."</h3>";
+        $res .= "<form method='post'>";
+        $res .= "<section>";
         foreach ($this->reponses as $reponse){
             $res .= $reponse->toForm();
         }
+        $res .= "</section>";
+        $res .= "<button type='submit'><i class='fa fa-caret-square-right'></i></button>";
+        $res .= "</form>";
+
         return $res;
     }
 
