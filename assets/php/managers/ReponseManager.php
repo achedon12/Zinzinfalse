@@ -1,8 +1,5 @@
 <?php
 
-require_once "assets/php/classes/Reponse.php";
-require_once "assets/php/classes/Question.php";
-
 class ReponseManager{
 
     private PDO $pdo;
@@ -28,9 +25,23 @@ class ReponseManager{
         $prepare->execute();
         if ($prepare->rowCount() > 0) {
             $row = $prepare->fetchAll();
-            return new Reponse($row["no_reponse"],$row["question"],$row["libelle"]);
+            return new Reponse($row["no_reponse"],$row["question"],$row["libelle"],$row["bonne_reponse"]);
         }
         return null;
+    }
+
+    public function getTrueResponseFromAQuestion(string $question): ?Reponse{
+        $sql = "SELECT * FROM response WHERE question = :question and bonne_reponse = :bonne_reponse";
+        $prepare = $this->pdo->prepare($sql);
+        $var = true;
+        $res = [];
+        $prepare->bindParam(':question', $question, PDO::PARAM_STR);
+        $prepare->bindParam(':bonne_reponse', $var, PDO::PARAM_BOOL);
+        $prepare->execute();
+        foreach ($prepare->fetchAll(PDO::FETCH_ASSOC) as $row){
+            $res[] = $row["no_reponse"];
+        }
+        return $res;
     }
 
     /**

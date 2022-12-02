@@ -21,7 +21,14 @@ class QuestionManager{
         $res = [];
         $stmt = $this->pdo->query("SELECT * FROM question");
         foreach ($stmt->fetchAll(PDO::FETCH_ASSOC) as $row){
-            $res[] = new Reponse($row["libelle"],$row["type"],$row["points"]);
+            $stmt2 = $this->pdo->prepare("SELECT * FROM reponse where question=:question");
+            $stmt2->bindParam(":question",$row["libelle"],PDO::PARAM_STR);
+            $stmt2->execute();
+            $reponses = [];
+            foreach ($stmt2->fetchAll(PDO::FETCH_ASSOC) as $row2){
+                $reponses[] = new Reponse($row2["no_reponse"],$row2["question"],$row2["libelle"],$row2["bonne_reponse"]);
+            }
+            $res[] = new Question($row["libelle"],$row["type"],$row["points"],$reponses);
         }
         return $res;
     }

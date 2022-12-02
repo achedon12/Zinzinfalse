@@ -6,13 +6,14 @@ require_once "../assets/php/managers/ConnexionManager.php";
 require_once "../src/app/users/Auth.php";
 require_once "../assets/php/managers/UtilisateurManager.php";
 require_once "../assets/php/classes/Utilisateur.php";
+require_once "../assets/php/database/DatabaseManager.php";
 
 if(session_status() == PHP_SESSION_NONE){
     session_start();
 }
 
 if(Auth::isConnected()){
-   header("Location: test.php");
+   header("Location : accueil.php");
     exit(0);
 }
 

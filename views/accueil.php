@@ -37,9 +37,7 @@ if(isset($_POST["deconnect"])){
     <h1>Accueil</h1>
     <nav class="nav">
         <ul>
-            <li class="nav"><a href="#">Escape Game</a></li>
-            <li class="nav"><a href="#">Informations</a></li>
-            <li class="nav"><a href="parametres.php">Paramètres</a></li>
+            <li class="nav"><a href="../assets/php/entrer.php">Escape Game</a></li>
             <form method="post"><input type="submit" name="deconnect" value="Se déconnecter"></form>
         </ul>
     </nav>

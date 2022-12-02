@@ -1,5 +1,4 @@
 <?php
-
 class Question{
 
     private string $libelle;
@@ -8,16 +7,33 @@ class Question{
 
     private int $points;
 
+    private array $reponses;
+
     /**
      * @param string $libelle
      * @param string $type
      * @param int $points
      */
-    public function __construct(string $libelle, string $type, int $points)
+    public function __construct(string $libelle, string $type, int $points, array $reponses)
     {
         $this->libelle = $libelle;
         $this->type = $type;
         $this->points = $points;
+        $this->reponses = $reponses;
+    }
+
+    public function toForm(): string{
+        $res = "<h3>".$this->libelle."</h3>";
+        $res .= "<form method='post'>";
+        $res .= "<section>";
+        foreach ($this->reponses as $reponse){
+            $res .= $reponse->toForm($this->type);
+        }
+        $res .= "</section>";
+        $res .= "<button type='submit' onclick='check()'><i class='fa fa-caret-square-right'></i></button>";
+        $res .= "</form>";
+
+        return $res;
     }
 
     /**

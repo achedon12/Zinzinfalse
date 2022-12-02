@@ -1,5 +1,4 @@
 <?php
-
 class Reponse{
 
     private string $noReponse;
@@ -8,16 +7,20 @@ class Reponse{
 
     private string $libelle;
 
+    private bool $bonne_reponse;
+
     /**
      * @param string $noReponse
      * @param string $question
      * @param string $libelle
+     *
      */
-    public function __construct(string $noReponse, string $question, string $libelle)
+    public function __construct(string $noReponse, string $question, string $libelle, bool $bonne_reponse)
     {
         $this->noReponse = $noReponse;
         $this->question = $question;
         $this->libelle = $libelle;
+        $this->bonne_reponse = $bonne_reponse;
     }
 
     /**
@@ -26,6 +29,25 @@ class Reponse{
     public function getNoReponse(): string
     {
         return $this->noReponse;
+    }
+
+    public function toForm(string $state): string
+    {
+        if ($state == "choixmultiple") {
+            $res = "<input type='checkbox' id='" . $this->noReponse . "' name='" . $this->noReponse . "'>" .
+            "<label for='" . $this->noReponse . "'>" . $this->libelle . "</label>";
+        }
+        if ($state == "choixunique") {
+            $res = "<input type='radio' id='" . $this->noReponse . "' name='" . $this->question . "'>" .
+                "<label for='" . $this->noReponse . "'>" . $this->libelle . "</label>";
+        }
+        if ($state == "vraifaux"){
+            $res = "<input type='radio' id='" . $this->noReponse . "' name='" . $this->noReponse . "'>" .
+            "<label for='" . $this->noReponse . "'>faux</label>".
+                "<input type='radio' id='" . $this->noReponse . "' name='" . $this->noReponse . "'>" .
+                "<label for='" . $this->noReponse . "'>vrai</label>";
+        }
+        return $res;
     }
 
     /**
