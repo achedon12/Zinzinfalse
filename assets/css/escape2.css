@@ -1,0 +1,127 @@
+/* Container needed to position the button. Adjust the width as needed */
+.container {
+    position: relative;
+    height: 100%;
+    width: 100%;
+}
+
+button {
+    background: transparent;
+    color : transparent;
+    border : none;
+}
+
+/* Make the image responsive */
+.container img {
+    width: 100%;
+    height: 100%;
+}
+
+/* Style the button and place it in the middle of the container/image */
+.container #btn1 {
+    position: absolute;
+    width: 8%;
+    height: 8%;
+    top: 72%;
+    left: 93%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+
+button:hover {
+    border: solid;
+    border-color: aqua;
+}
+
+#un {
+    position: absolute;
+    width: 2%;
+    height: 5%;
+    top: 51%;
+    left: 95%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    cursor: pointer;
+
+    border-radius: 5px;
+}
+
+#deux{
+    position: absolute;
+    width: 2.5%;
+    height: 4.5%;
+    top: 33%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    cursor: pointer;
+
+    border-radius: 5px;
+}
+
+#quatre {
+    position: absolute;
+    width: 5%;
+    height: 23%;
+    top: 53%;
+    left: 64%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    cursor: pointer;
+
+    border-radius: 5px;
+}
+
+.modal {
+    display: none;
+}
+
+.modal-back {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba( 0, 0, 0, .25 )
+}
+
+.modal-container {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    padding: 25px;
+    background: white;
+    transform: translate(-50%, -50%);
+    border-radius: 10px;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    text-align:center;
+    background-color: rgb(231, 231, 231);
+}
+
+#modal-close{
+    cursor:pointer;
+}
+
+#modal-close:hover{
+    color : rgb(54, 151, 255);
+}
+
+#inpCode{
+    border:1px solid rgb(107, 107, 107);
+    border-radius: 3px;
+}
+
+#pmod{
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+input[type="submit"]{
+    width: 60px;
+    text-align: center;
+    margin-top: 5px;
+}

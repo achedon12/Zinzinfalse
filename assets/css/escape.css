@@ -1,0 +1,124 @@
+/* Container needed to position the button. Adjust the width as needed */
+.container {
+    position: relative;
+    height: 100%;
+    width: 100%;
+}
+
+/* Make the image responsive */
+.container img {
+    width: 100%;
+    height: 100%;
+}
+
+/* Style the button and place it in the middle of the container/image */
+.container #btn1 {
+    position: absolute;
+    width: 8%;
+    height: 8%;
+    top: 72%;
+    left: 93%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    border: none;
+    border-radius: 5px;
+}
+
+.container .btn:hover {
+    background-color: black;
+}
+
+button{
+    color:transparent;
+    background:transparent;
+}
+
+button:hover{
+    cursor:pointer;
+}
+
+#deux{
+    position: absolute;
+    width: 4%;
+    height: 4%;
+    top: 40%;
+    left: 54.5%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    border: none;
+    border-radius: 5px;
+}
+
+#trois{
+    position: absolute;
+    width: 4%;
+    height: 22%;
+    top: 52%;
+    left: 21%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    border: none;
+    border-radius: 5px;
+}
+
+
+.modal {
+    display: none;
+}
+
+.modal-container {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    padding: 25px;
+    background: white;
+    transform: translate(-50%, -50%);
+    border-radius: 10px;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    text-align:center;
+    background-color: rgb(231, 231, 231);
+}
+
+#modal-close{
+    cursor:pointer;
+}
+
+#modal-close:hover{
+    color : rgb(54, 151, 255);
+}
+
+#un{
+    position: absolute;
+    width:8%;
+    height: 8%;
+    top: 73%;
+    left:93%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    border: none;
+    border-radius: 5px;
+}
+
+#quatre{
+    position: absolute;
+    width:8%;
+    height:16%;
+    top:42%;
+    left:4%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    border: none;
+    border-radius: 5px;
+}
+
+#cinq{
+    position: absolute;
+    width:7%;
+    height: 8%;
+    top: 55%;
+    left:11%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    border: none;
+    border-radius: 5px;
+}
