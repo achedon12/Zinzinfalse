@@ -8,6 +8,8 @@ class Question{
 
     private int $points;
 
+    private array $reponses;
+
     /**
      * @param string $libelle
      * @param string $type
@@ -18,6 +20,14 @@ class Question{
         $this->libelle = $libelle;
         $this->type = $type;
         $this->points = $points;
+    }
+
+    public function toForm(): string{
+        $res = "";
+        foreach ($this->reponses as $reponse){
+            $res .= $reponse->toForm();
+        }
+        return $res;
     }
 
     /**

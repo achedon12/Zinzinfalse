@@ -28,6 +28,11 @@ class Reponse{
         return $this->noReponse;
     }
 
+    public function toForm(): string{
+        return "<input type='radio' name='reponse' value='".$this->noReponse."'>".
+            "<label for='".$this->noReponse."'>".$this->libelle."</label>";
+    }
+
     /**
      * @param string $noReponse
      */
