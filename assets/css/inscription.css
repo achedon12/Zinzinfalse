@@ -1,49 +1,127 @@
-*{
-    margin:0;
-    padding:0;
+body{
+    font-family: 'Montserrat', sans-serif;
+    background-image: url("../images/paradise.jpg");
+    z-index: 0;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-color: black;
+    display: flex;
+    justify-content: space-around;
+    align-self: center;
 }
 
-body
-{
-    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+header {
+    font-weight:300;
+}
+
+nav {
     text-align: center;
-    display:flex;
-    align-items: center;
-    justify-content: center;
-    height:100vh;
-    background-image: linear-gradient(to top right, rgb(0, 166, 255),rgb(0, 51, 255));
 }
 
-form{
-    display:flex;
-    justify-content: space-around;
-    flex-direction: column;
-    background-image: linear-gradient(to top right, rgb(111, 205, 255),rgb(64, 110, 220));
-    border-radius: 10px;
-    width: 60%;
-    height: 50%;
-    align-items: center;
+/* Taille du texte des items de menu */
+nav>ul>li, form.nav{
+    font-size: 1.5em;
 }
 
-section{
-    display:flex;
-    align-items: center;
-    flex-direction: column;
-    justify-content: space-around;
-    height: 50%;
-}
-input{
-    border-radius: 3px;
-    border: 1px solid cornflowerblue;
+li.nav, form
+{
+    margin: 4%;
 }
 
-
-input[type="submit"]{
+/* Choix de menu */
+nav li, form {
+    display: inline-block;
+    position: relative;
     width: 15%;
-    
+    list-style-type: none;
 }
 
-input[type="submit"]:hover{
+/* Lien dans le menu */
+nav li a:hover, nav li a:focus, nav li a:active {
+    background-color: white;
+    color:black;
+    border: 0.5px solid white;
+    transition-duration: 0.5s;
+}
+
+h1{
+    text-align: center;
+    color: white;
+    font-family: 'Montserrat', sans-serif;
+}
+
+a{
+    display: flex;
+    justify-content: space-around;
+    align-self: center;
+
+    padding: 2%;
+    text-decoration: none;
+    color:white;
+    border-radius: 2px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+a:visited{
+    color: white;
+}
+
+form>input
+{
+    color: white;
+    padding: 1%;
+}
+
+form
+{
+
     border: 1px solid white;
-    background-image: linear-gradient(to top right, rgb(0, 166, 255),rgb(0, 51, 255));
+    background-color: rgb(169,169,169, 0.75);
+    justify-content: center;
+    text-align: center;
+    width: 40%;
+}
+
+form:hover
+{
+    background-color: darkgrey;
+    transition-duration: 0.5s;
+
+}
+::placeholder {
+    text-align: center;
+}
+
+form:hover>input
+{
+    color: black;
+}
+
+input
+{
+    background: none;
+    border: none;
+    padding-bottom: 3%;
+}
+
+nav.secondNav
+{
+    margin-top: 5%;
+}
+
+nav.secondNav ul
+{
+    display: flex;
+    justify-content: space-around;
+    align-self: center;
+}
+
+nav.secondNav ul li
+{
+    width: 20%;
+    height: auto;
+    text-align: center;
+}
+#valider{
+    border: 1px solid white;
 }

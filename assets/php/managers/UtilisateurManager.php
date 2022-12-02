@@ -12,7 +12,7 @@ class UtilisateurManager{
         $this->pdo = $pdo;
     }
 
-    public function createUtilisateur(string $pseudo, string $password, string $mail): bool{
+    public function createUtilisateur(string $pseudo, string $password, string $mail, string $validation=""): bool{
         if ($this->existUtilisateur($pseudo)){
             return false;
         }
@@ -21,7 +21,7 @@ class UtilisateurManager{
             $pseudo,
             $mail,
             $password,
-            ""
+            $validation
         ]);
         return true;
     }
@@ -31,6 +31,11 @@ class UtilisateurManager{
             return false;
         }
         $this->pdo->query("UPDATE utilisateur set pseudo= '{$newUser->getPseudo()}', mail='{$newUser->getMail()}', mdp='{$newUser->getMdp()}', validation='{$newUser->getValidation()}'");
+        return true;
+    }
+
+    public function modifyValidation(Utilisateur $userNoValid): bool{
+        $this->pdo->query("UPDATE utilisateur set validation ='' where pseudo='{$userNoValid->getPseudo()}'");
         return true;
     }
 
@@ -55,6 +60,17 @@ class UtilisateurManager{
         $sql = "SELECT * FROM utilisateur WHERE pseudo = :pseudo";
         $prepare = $this->pdo->prepare($sql);
         $prepare->bindParam(':pseudo', $pseudo, PDO::PARAM_STR);
+        $prepare->execute();
+        if ($prepare->rowCount() > 0) {
+            $result = $prepare->fetchAll();
+            return new Utilisateur($result[0]["pseudo"],$result[0]["mail"],$result[0]["mdp"],$result[0]["validation"]);
+        }
+        return null;
+    }
+    public function getUtilisateurFromValid(string $validation): ?Utilisateur{
+        $sql = "SELECT * FROM utilisateur WHERE validation = :validation";
+        $prepare = $this->pdo->prepare($sql);
+        $prepare->bindParam(':validation', $validation, PDO::PARAM_STR);
         $prepare->execute();
         if ($prepare->rowCount() > 0) {
             $result = $prepare->fetchAll();

@@ -18,7 +18,9 @@ class PHPMailerManager
             $mail->Username   = DatabaseManager::MAIL_HOST;                     //SMTP username
             $mail->Password   = DatabaseManager::PASSWORD_HOST;                               //SMTP password
             $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;            //Enable implicit TLS encryption
-            $mail->Port       = 465;                                    //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
+            $mail->Port       = 465;
+            $mail->CharSet = "UTF-8";
+            //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
             var_dump(DatabaseManager::MAIL_HOST);
             //Recipients
             $mail->setFrom(DatabaseManager::MAIL_HOST, DatabaseManager::NAME_HOST);
@@ -35,13 +37,13 @@ class PHPMailerManager
             //Content
             $mail->isHTML(true);                                  //Set email format to HTML
             $mail->Subject = 'Email de verification';
-            $mail->Body    = "Bienvenue, merci de vérifier votre compte avec ce lien : https://zinzinfalse.alwaysdata.net/views/connexion.php?code=$validation";
+            $mail->Body    = "Merci de vérifier votre compte avec ce lien : https://zinzinfalse.alwaysdata.net/views/connexion.php?code=$validation";
             //$mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
+            $mail->send();
 
-            return $mail->send();
         }catch (Exception $e){
             echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
-            return false;
+
         }
 
     }
