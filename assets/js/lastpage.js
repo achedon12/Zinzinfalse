@@ -1,3 +1,5 @@
+var date = new Date();
+var initialDate = date.getTime();
 
 let btn1 = document.getElementById("un");
 let btn2 = document.getElementById("deux");
@@ -12,6 +14,15 @@ btn3.addEventListener("click", alert3);
 btn4.addEventListener("click", alert4);
 btn5.addEventListener("click", alert5);
 btn6.addEventListener("click", alert6);
+
+function getCookie(name) {
+    let cookie = {};
+    document.cookie.split(';').forEach(function(el) {
+        let [k,v] = el.split('=');
+        cookie[k.trim()] = v;
+    })
+    return cookie[name];
+}
 
 /*grand écran*/
 function alert1(){
@@ -34,6 +45,10 @@ function alert1(){
 }
 
 function validate(){
+    var date2 = new Date();
+    let finalDate = date2.getTime() - initialDate;
+    let add = finalDate + parseInt(getCookie('temps'));
+    document.cookie = "temps = " + add;
     document.location.href = "quizz.php";
 }
 

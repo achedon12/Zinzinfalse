@@ -1,6 +1,10 @@
 var date = new Date();
 var initialDate = date.getTime();
 
+if (sessionStorage.getItem('appuiEaster1') != 'true') {
+    sessionStorage.setItem('appuiEaster1', 'false');
+}
+
 let btn1 = document.getElementById("un");
 let btn2 = document.getElementById("deux");
 let btn3 = document.getElementById("quatre");
@@ -31,12 +35,26 @@ function hideAll(){
 }
 
 function alert2(){
+
     hideAll();
-    document.getElementById("pmod").textContent = "easter egg (trouver quoi)";
-    allScore = parseInt(getCookie('score')) + 20;
-    document.cookie = "score = " + allScore;
-    document.getElementById('modal').style.display = 'block';
-    document.getElementById("modal-close").addEventListener("click", fermer);
+    if (sessionStorage.getItem('appuiEaster1') == 'true'){
+        document.getElementById("pmod").textContent = "easter egg déjà trouvé !";
+        document.getElementById('modal').style.display = 'block';
+    }
+    else {
+        sessionStorage.setItem('appuiEaster1', 'true');
+        document.getElementById("pmod").textContent = "easter egg !! Vous gagnez 20 points !";
+        img = document.createElement('img');
+        img.style.width = '50px';
+        img.style.height = '50px';
+        img.style.marginTop = '20px';
+        img.src = '../../Image/egg.png';
+        allScore = parseInt(getCookie('score')) + 20;
+        document.cookie = "score = " + allScore;
+        document.getElementById('pmod').appendChild(img);
+        document.getElementById('modal').style.display = 'block';
+        document.getElementById("modal-close").addEventListener("click", fermer);
+    }
 }
 
 function alert3(){

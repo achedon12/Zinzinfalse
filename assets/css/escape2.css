@@ -45,7 +45,6 @@ button:hover {
     transform: translate(-50%, -50%);
     -ms-transform: translate(-50%, -50%);
     cursor: pointer;
-
     border-radius: 5px;
 }
 

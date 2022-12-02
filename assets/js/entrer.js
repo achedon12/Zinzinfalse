@@ -1,3 +1,5 @@
+sessionStorage.setItem('appuiEaster1', 'false');
+sessionStorage.setItem('appuiEaster', 'false');
 
 var date = new Date();
 var initialDate = date.getTime();

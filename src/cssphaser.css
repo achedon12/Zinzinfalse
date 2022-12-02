@@ -1,0 +1,51 @@
+body{
+    font-size: 10px;
+    background-color: #000000;
+
+
+    overflow: hidden;
+
+}
+a{
+    color: #ffffff;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: color 1s;
+}
+a:hover{
+    color: #ff0000;
+    text-decoration: underline;
+}
+a:visited{
+    color: #880000;
+}
+#game{
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 90vh;
+
+}
+canvas{
+    outline: 1px solid #333;
+
+}
+
+html{
+    user-select: none;
+}
+
+#scores{
+    color: #ffffff;
+    font-size: 2.5em;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+section{
+    color: #ffffff;
+    font-size: 1.5em;
+    text-align: center;
+    margin-bottom: 10px;
+}
