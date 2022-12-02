@@ -1,26 +1,41 @@
-#un{
-    position: absolute;
-    width: 14%;
-    height: 40%;
-    top: 60%;
-    left: 66%;
-    transform: translate(-50%, -50%);
-    -ms-transform: translate(-50%, -50%);
-    border: none;
-    border-radius: 5px;
+.container {
+    position: relative;
+    height: 100%;
+    width: 100%;
+}
+
+.container img {
+    width: 100%;
+    height: 100%;
 }
 
 button{
     color:transparent;
     background:transparent;
+    border: none;
 }
 
-button:hover{
-    cursor: unset;
+#un{
+    position: absolute;
+    width: 14%;
+    height: 40%;
+    top: 55%;
+    left: 57%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    border-radius: 5px;
 }
+
+
+button:hover{
+    cursor: pointer;
+    border: solid aqua;
+}
+
 .modal {
     display: none;
 }
+
 .modal-back {
     position: fixed;
     top: 0;

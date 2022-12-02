@@ -32,9 +32,15 @@ function hideAll(){
 
 function alert2(){
     hideAll();
-    document.getElementById("pmod").textContent = "easter egg (trouver quoi)";
+    document.getElementById("pmod").textContent = "easter egg !! Vous gagnez 20 points !";
+    img = document.createElement('img');
+    img.style.width = '50px';
+    img.style.height = '50px';
+    img.style.marginTop = '20px';
+    img.src = '../../Image/egg.png';
     allScore = parseInt(getCookie('score')) + 20;
     document.cookie = "score = " + allScore;
+    document.getElementById('pmod').appendChild(img);
     document.getElementById('modal').style.display = 'block';
     document.getElementById("modal-close").addEventListener("click", fermer);
 }

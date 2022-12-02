@@ -25,7 +25,7 @@ function getCookie(name) {
 
 function alert1(){
     hideAll();
-    document.getElementById("pmod").textContent = "La prochaine salle doit etre accesible depuis un autre écran";
+    document.getElementById("pmod").textContent = "La prochaine salle doit etre accessible depuis un autre écran";
     document.getElementById('modal').style.display = 'block';
     document.getElementById("modal-close").addEventListener("click", fermer);
 }
@@ -51,10 +51,15 @@ function alert2(){
 
 function alert3(){
     hideAll();
-    document.getElementById("trois").hidden = true;
-    document.getElementById("pmod").textContent = "easter egg (trouver quoi)";
+    document.getElementById("pmod").textContent = "easter egg !! Vous gagnez 20 points !";
+    img = document.createElement('img');
+    img.style.width = '50px';
+    img.style.height = '50px';
+    img.style.marginTop = '20px';
+    img.src = '../../Image/egg.png';
     allScore = parseInt(getCookie('score')) + 20;
     document.cookie = "score = " + allScore;
+    document.getElementById("pmod").appendChild(img);
     document.getElementById('modal').style.display = 'block';
     document.getElementById("modal-close").addEventListener("click", fermer);
 }
@@ -62,14 +67,14 @@ function alert3(){
 /* les 2 écrans de gauche*/
 function alert4(){
     hideAll();
-    document.getElementById("pmod").textContent = "Ratio bouffon";
+    document.getElementById("pmod").textContent = "Non pas cet écran !";
     document.getElementById('modal').style.display = 'block';
     document.getElementById("modal-close").addEventListener("click", fermer);
 }
 
 function alert5(){
     hideAll();
-    document.getElementById("pmod").textContent = "La porte bleu amène vers la sortie";
+    document.getElementById("pmod").textContent = "La porte bleue amène vers la sortie";
     document.getElementById('modal').style.display = 'block';
     document.getElementById("modal-close").addEventListener("click", fermer);
 }
