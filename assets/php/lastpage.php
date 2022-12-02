@@ -19,7 +19,7 @@
         <a id="modal-close">[fermer]</a>
     </div>
 </div>
-<img src="Image/lastsalle.png">
+<img src="../../Image/lastsalle.png">
 <button id="un"> test </button>
 <button id="deux"> test </button>
 <button id="trois"> test </button>
@@ -27,7 +27,7 @@
 <button id="cinq"> test </button>
 <button id="six"> test </button>
 </body>
-<script type="text/javascript" src="./lastsalle.js"></script>
-<link rel="stylesheet" href="lastsalle.css">
+<script type="text/javascript" src="../js/lastpage.js"></script>
+<link rel="stylesheet" href="../css/lastpage.css">
 </html>
 
