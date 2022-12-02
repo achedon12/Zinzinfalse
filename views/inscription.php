@@ -1,12 +1,11 @@
 <?php
 //Import PHPMailer classes into the global namespace
 //These must be at the top of your script, not inside a function
-use PHPMailer\PHPMailer\PHPMailer;
-use PHPMailer\PHPMailer\SMTP;
-use PHPMailer\PHPMailer\Exception;
+
 
 //Load Composer's autoloader
-require './../vendor/autoload.php';
+require '../vendor/autoload.php';
+require '../assets/php/managers/PHPMailerManager.php';
 session_start();
 ?>
 <!DOCTYPE html>
@@ -36,53 +35,21 @@ session_start();
     </form>
     <?php
     //Create an instance; passing `true` enables exceptions
-    $mail = new PHPMailer(true);
-
-    try {
+    require_once '../vendor/autoload.php';
+    require_once "../assets/php/database/DatabaseManager.php";
         if (isset($_POST['subButton'])) {
             $username = isset($_POST['username'])?trim($_POST['username']):"";
             var_dump($username);
             $email = isset($_POST['email'])?trim($_POST['email']):"";
             $mdp = $_POST['mdp'] = isset($_POST['mdp'])?trim($_POST['mdp']):"";
             $verification = session_id();
+            var_dump($email);
             var_dump($verification);
-
-            //Server settings
-            //$mail->SMTPDebug = SMTP::DEBUG_SERVER;                      //Enable verbose debug output
-            $mail->isSMTP();                                            //Send using SMTP
-            $mail->Host       = 'smtp-zinzinfalse.alwaysdata.net';                     //Set the SMTP server to send through
-            $mail->SMTPAuth   = true;                                   //Enable SMTP authentication
-            $mail->Username   = 'zinzinfalse@alwaysdata.net';                     //SMTP username
-            $mail->Password   = 'zinzinfalse26!*';                               //SMTP password
-            $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;            //Enable implicit TLS encryption
-            $mail->Port       = 465;                                    //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
-
-            //Recipients
-            $mail->setFrom('zinzinfalse@alwaysdata.net', 'zinzinFalseAdmin');
-            $mail->addAddress($email, $username);     //Add a recipient
-            //$mail->addAddress('');               //Name is optional
-            //$mail->addReplyTo('info@example.com', 'Information');
-            //$mail->addCC('cc@example.com');
-            //$mail->addBCC('bcc@example.com');
-
-            //Attachments
-            //$mail->addAttachment('/var/tmp/file.tar.gz');         //Add attachments
-            //$mail->addAttachment('/tmp/image.jpg', 'new.jpg');    //Optional name
-
-            //Content
-            $mail->isHTML(true);                                  //Set email format to HTML
-            $mail->Subject = 'Email de verification';
-            $mail->Body    = 'Cliquez sur ce lien pour <b>vérifier</b> votre email <br> La vérification est obligatoire pour continuer sur notre site internet';
-            //$mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
-
-            if($mail->send()){
-                echo 'Message has been sent';
+            if(PHPMailerManager::sendAMail($email,$username,$verification)){
+                echo("Message bien envoyé");
             }
-
         }
-    }catch (Exception $e) {
-        echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
-    }
+
 
     ?>
 </body>
