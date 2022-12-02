@@ -19,8 +19,11 @@ function alert1(){
 
 
 function hideAll(){
+    document.getElementById('un').hidden = true;
     document.getElementById("deux").hidden = true;
     document.getElementById("trois").hidden = true;
+    document.getElementById('quatre').hidden = true;
+    document.getElementById('cinq').hidden = true;
 }
 /* porte bleu*/
 function alert2(){
@@ -53,6 +56,14 @@ function alert5(){
 function fermer(){
     document.getElementById("pmod").textContent = "";
     document.getElementById("modal").style.display = 'none';
+    visibleAll();
+
+}
+
+function visibleAll(){
+    document.getElementById('un').hidden = false;
+    document.getElementById('deux').hidden = false;
     document.getElementById("trois").hidden = false;
-    document.getElementById("deux").hidden = false;
+    document.getElementById("quatre").hidden = false;
+    document.getElementById("cinq").hidden = false;
 }

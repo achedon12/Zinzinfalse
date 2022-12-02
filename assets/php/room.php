@@ -6,6 +6,7 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
+
     <title>Escape the Room</title>
 </head>
 <body class="container" id="oui">
@@ -17,12 +18,14 @@
         <a id="modal-close">[fermer]</a>
     </div>
 </div>
-<img src="Image/hall.png">
+<img src="../../Image/room.png">
 <button id="un"> test </button>
-<button id="deux"> test 2 </button>
-<button id="quatre"> test 4 </button>
+<button id="deux"> test </button>
+<button id="trois"> test </button>
+<button id="quatre"> test </button>
+<button id="cinq"> test </button>
 </body>
-<script type="text/javascript" src="room2.js"></script>
-<link rel="stylesheet" href="escape2.css">
+<script type="text/javascript" src="../js/room3.js"></script>
+<link rel="stylesheet" href="../css/escape.css">
 </html>
 

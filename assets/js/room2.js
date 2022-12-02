@@ -1,3 +1,4 @@
+document.cookie = "s"
 let btn1 = document.getElementById("un");
 let btn2 = document.getElementById("deux");
 let btn3 = document.getElementById("quatre");
@@ -56,6 +57,5 @@ function fermer(){
     document.getElementById("un").hidden = false;
     document.getElementById("deux").hidden = false;
     document.getElementById("quatre").hidden = false;
-    document.getElementById("pmod").removeChild(input);
 }
 
