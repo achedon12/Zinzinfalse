@@ -6,6 +6,7 @@
 //Load Composer's autoloader
 require '../vendor/autoload.php';
 require '../assets/php/managers/PHPMailerManager.php';
+require '../assets/php/managers/UtilisateurManager.php';
 session_start();
 ?>
 <!DOCTYPE html>
@@ -37,18 +38,26 @@ session_start();
     //Create an instance; passing `true` enables exceptions
     require_once '../vendor/autoload.php';
     require_once "../assets/php/database/DatabaseManager.php";
-        if (isset($_POST['subButton'])) {
-            $username = isset($_POST['username'])?trim($_POST['username']):"";
-            var_dump($username);
-            $email = isset($_POST['email'])?trim($_POST['email']):"";
-            $mdp = $_POST['mdp'] = isset($_POST['mdp'])?trim($_POST['mdp']):"";
-            $verification = session_id();
-            var_dump($email);
-            var_dump($verification);
-            if(PHPMailerManager::sendAMail($email,$username,$verification)){
-                echo("Message bien envoyé");
-            }
+    if (isset($_POST['subButton'])) {
+        $username = isset($_POST['username'])?trim($_POST['username']):"";
+        $email = isset($_POST['email'])?trim($_POST['email']):"";
+        $mdp = $_POST['mdp'] = isset($_POST['mdp'])?trim($_POST['mdp']):"";
+        $cryptMDP = password_hash($mdp,PASSWORD_ARGON2ID);
+        $verification = session_id();
+        $user = new UtilisateurManager(DatabaseManager::getInstance());
+        if($user->existUtilisateur($username)){
+            echo"<p class='error'>Cet username existe déjà ! </p>";
+        }else{
+            $user->createUtilisateur($username,$cryptMDP,$email,$verification);
+            PHPMailerManager::sendAMail($email,$username,$verification);
+            //echo("Message envoyé");
+            echo"<p class='message'>Votre compte a bien été crée !</p>";
+            //sleep(5);
+            //header("Location: connexion.php");
         }
+
+
+    }
 
 
     ?>

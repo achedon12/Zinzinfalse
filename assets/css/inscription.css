@@ -47,3 +47,16 @@ input[type="submit"]:hover{
     border: 1px solid white;
     background-image: linear-gradient(to top right, rgb(0, 166, 255),rgb(0, 51, 255));
 }
+p.message {
+    font-weight: bold;
+    text-align: center;
+    color: #29A329; background-color: #81F0BC;
+    border: 1px solid #29A329;
+    padding: 3px 5px;
+}
+
+p.erreur {
+    color: red; background-color: #FFA3A3;
+    border: 1px solid red;
+    padding: 3px 5px;
+}
