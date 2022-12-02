@@ -18,8 +18,8 @@ class ConnexionManager
                 header('Location: connexion.php');
             } else {
                 $_SESSION["isConnected"] = true;
-                $_SESSION["role"] = $result[0]['pseudo'];
-                header('Location: test.php');
+                $_SESSION["pseudo"] = $result[0]['pseudo'];
+                header('Location: accueil.php');
             }
             exit(0);
         }

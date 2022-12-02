@@ -1,0 +1,110 @@
+body{
+    font-family: 'Montserrat', sans-serif;
+    background-image: url("../images/starrysky.jpg");
+    z-index: 0;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-color: black;
+}
+
+header {
+    font-weight:300;
+}
+
+nav {
+    text-align: center;
+}
+
+/* Taille du texte des items de menu */
+nav>ul>li, form.nav{
+    font-size: 1.5em;
+}
+
+li.nav, form
+{
+    margin: 4%;
+}
+
+/* Choix de menu */
+nav li, form {
+    display: inline-block;
+    position: relative;
+    width: 15%;
+    list-style-type: none;
+}
+
+/* Lien dans le menu */
+nav li a:hover, nav li a:focus, nav li a:active {
+    background-color: white;
+    color:black;
+    border: 0.5px solid white;
+    transition-duration: 0.5s;
+}
+
+h1{
+    text-align: center;
+    color: white;
+    font-family: 'Montserrat', sans-serif;
+}
+
+a{
+    display: inline-block;
+    border: 1px solid white;
+    padding: 10%;
+    text-decoration: none;
+    color:white;
+    border-radius: 2px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+a:visited{
+    color: white;
+}
+
+form>input
+{
+    color: white;
+    padding: 10%;
+}
+
+form
+{
+    border: 1px solid white;
+}
+
+form:hover
+{
+    background-color: white;
+    transition-duration: 0.5s;
+
+}
+
+form:hover>input
+{
+    color: black;
+}
+
+input
+{
+    background: none;
+    border: none;
+}
+
+nav.secondNav
+{
+    margin-top: 5%;
+}
+
+nav.secondNav ul
+{
+    display: flex;
+    justify-content: space-around;
+    align-self: center;
+}
+
+nav.secondNav ul li
+{
+    width: 20%;
+    height: auto;
+    text-align: center;
+}
