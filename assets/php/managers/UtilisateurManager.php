@@ -1,5 +1,4 @@
 <?php
-
 class UtilisateurManager{
 
     private PDO $pdo;

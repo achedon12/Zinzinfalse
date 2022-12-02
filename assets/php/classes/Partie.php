@@ -1,5 +1,4 @@
 <?php
-
 use Cassandra\Time;
 
 class Partie{

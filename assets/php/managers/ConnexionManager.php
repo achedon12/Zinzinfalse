@@ -1,7 +1,5 @@
 <?php
 
-include_once "../assets/php/database/DatabaseManager.php";
-
 class ConnexionManager
 {
 

@@ -1,21 +1,35 @@
 <?php
+require_once __DIR__ . "/autoload.php";
 
 if(session_status() == PHP_SESSION_NONE){
     session_start();
 }
-
-require_once "managers/QuestionManager.php";
-require_once "database/DatabaseManager.php";
-
-$questions = new QuestionManager(DatabaseManager::getInstance());
-
-if (!isset($_Post['questions'])) {
-
-    $_session['questions'] = $questions->getRandomQuestions(10);
+if(empty($_SESSION["questions"])){
+    $questions = new QuestionManager(DatabaseManager::getInstance());
+    $_SESSION['questions'] = $questions->getAllQuestions();
+    $_SESSION['indice'] = 0;
+    $_SESSION["score"] = 0;
 }
-print_r($_POST);
-$_session['allQuestions'] = [];
-$_session['indice'] = 0;
+if(!empty($_POST)){
+    print_r($_POST);
+    $_SESSION['indice'] ++;
+    $dao = new ReponseManager(DatabaseManager::getInstance());
+    $trueReponse = $dao->getTrueResponseFromAQuestion($_SESSION["questions"][$_SESSION["indice"]]->getLibelle());
+    $flag = true;
+    foreach ($_POST as $key => $value){
+        if (!in_array($value,$trueReponse)){
+            $flag = false;
+        }
+    }
+    if ($flag){
+        $_SESSION["score"] += $_SESSION["questions"][$_SESSION["indice"]]->getPoints();
+    }
+    $_POST = [];
+    print_r($_SESSION["points"]);
+}
+
+
+
 ?>
 <!DOCTYPE html>
 
@@ -37,32 +51,9 @@ $_session['indice'] = 0;
             <img src="../../Image/jaune-d-or-opalescent.jpg" alt="Exemple Image" />
         </article>
         <article class="question">
-            <?php echo $_session["questions"][$_session["indice"]]->toForm();?>
+            <?php print_r($_SESSION["questions"][$_SESSION["indice"]]->toForm())?>
         </article>
     </section>
 
-<form method="post">
-    <section>
-        <h2>Question à réponse unique</h2>
-        <article>
-            <img src="../../Image/jaune-d-or-opalescent.jpg" alt="Exemple Image" />
-        </article>
-        <article class="question">
-            <label for="question">Question possible</label>
-            <section>
-                <input type="radio" id="choix1" name="question" value="choix1">
-                <label for="choix1">Reponse 1</label>
-                <input type="radio" id="choix2" name="question" value="choix2">
-                <label for="choix2">Reponse 2</label>
-                <input type="radio" id="choix3" name="question" value="choix3">
-                <label for="choix3">Reponse 3</label>
-                <input type="radio" id="choix4" name="question" value="choix4">
-                <label for="choix4">Reponse 4</label>
-                <input type="radio" id="choix5" name="question" value="choix5">
-                <label for="choix5">Reponse 5</label>
-            </section>
-        </article>
-    </section>
-    <button type="submit"><i class="fa fa-caret-square-right"></i></button>
-</form>
+
 </body>

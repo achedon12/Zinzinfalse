@@ -10,7 +10,7 @@ if(session_status() == PHP_SESSION_NONE){
 }
 
 if(Auth::isConnected()){
-   header("Location : test.php");
+   header("Location : accueil.php");
     exit(0);
 }
 
