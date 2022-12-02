@@ -1,6 +1,6 @@
 <?php
 session_start();
-require "UtilisateurManager.php";
+require "assets/php/managers/UtilisateurManager.php";
 require "assets/php/managers/PartieManager.php";
 require "PDO.php";
 
