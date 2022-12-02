@@ -43,11 +43,6 @@ class Tableau1 extends Phaser.Scene{
         this.porte1.setVisible(true);
         this.porte1.setCollideWorldBounds(true);
 
-        this.porte2 = this.physics.add.sprite(400, 600, 'door2');
-        this.porte2.setDisplaySize(40,60);
-        this.porte2.body.setAllowGravity(true);
-        this.porte2.setVisible(true);
-        this.porte2.setCollideWorldBounds(true);
 
 
 
@@ -114,9 +109,6 @@ class Tableau1 extends Phaser.Scene{
         if(this.physics.overlap(player, this.porte1)){
             gotoScoreboard();
         }
-        if(this.physics.overlap(player, this.porte2)){
-            gotofinish();
-        }
     }
 }
 
@@ -124,6 +116,3 @@ function gotoScoreboard(){
     window.location = './learderboard.php';
 }
 
-function gotofinish(){
-    window.location.href = 'finish.html';
-}
