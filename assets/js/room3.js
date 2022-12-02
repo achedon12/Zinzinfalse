@@ -1,3 +1,5 @@
+var date = new Date();
+var initialDate = date.getTime();
 
 let btn1 = document.getElementById("deux");
 let btn2 = document.getElementById("trois");
@@ -9,6 +11,17 @@ btn2.addEventListener("click", alert2);
 btn3.addEventListener("click", alert3);
 btn4.addEventListener("click", alert4);
 btn5.addEventListener("click", alert5);
+
+
+function getCookie(name) {
+    let cookie = {};
+    document.cookie.split(';').forEach(function(el) {
+        let [k,v] = el.split('=');
+        cookie[k.trim()] = v;
+    })
+    return cookie[name];
+}
+
 
 function alert1(){
     hideAll();
@@ -25,9 +38,14 @@ function hideAll(){
     document.getElementById('quatre').hidden = true;
     document.getElementById('cinq').hidden = true;
 }
+
 /* porte bleu*/
 function alert2(){
-    document.location.href = "page.php";
+    var date2 = new Date();
+    let finalDate = date2.getTime() - initialDate;
+    let add = finalDate + parseInt(getCookie('temps'));
+    document.cookie = "temps = " + add;
+    document.location.href = "lastpage.php";
 }
 
 
@@ -35,6 +53,8 @@ function alert3(){
     hideAll();
     document.getElementById("trois").hidden = true;
     document.getElementById("pmod").textContent = "easter egg (trouver quoi)";
+    allScore = parseInt(getCookie('score')) + 20;
+    document.cookie = "score = " + allScore;
     document.getElementById('modal').style.display = 'block';
     document.getElementById("modal-close").addEventListener("click", fermer);
 }

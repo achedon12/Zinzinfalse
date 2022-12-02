@@ -1,4 +1,6 @@
-document.cookie = "s"
+var date = new Date();
+var initialDate = date.getTime();
+
 let btn1 = document.getElementById("un");
 let btn2 = document.getElementById("deux");
 let btn3 = document.getElementById("quatre");
@@ -6,6 +8,14 @@ btn1.addEventListener("click", alert1);
 btn2.addEventListener("click", alert2);
 btn3.addEventListener("click", alert3);
 
+function getCookie(name) {
+    let cookie = {};
+    document.cookie.split(';').forEach(function(el) {
+        let [k,v] = el.split('=');
+        cookie[k.trim()] = v;
+    })
+    return cookie[name];
+}
 
 function alert1(){
     hideAll();
@@ -23,6 +33,8 @@ function hideAll(){
 function alert2(){
     hideAll();
     document.getElementById("pmod").textContent = "easter egg (trouver quoi)";
+    allScore = parseInt(getCookie('score')) + 20;
+    document.cookie = "score = " + allScore;
     document.getElementById('modal').style.display = 'block';
     document.getElementById("modal-close").addEventListener("click", fermer);
 }
@@ -45,6 +57,10 @@ function alert3(){
 
 function validate(){
     if (document.getElementById('inpCode').value == '1234'){
+        var date2 = new Date();
+        let finalDate = date2.getTime() - initialDate;
+        let add = finalDate + parseInt(getCookie('temps'));
+        document.cookie = "temps = " + add;
         document.location.href='room.php';
     }
     else {
